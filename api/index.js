@@ -17,7 +17,7 @@ app.use('/api/v1/read', ReadRoute);//endpoint for reading
 app.use('/api/v1/update',UpdateRoute);//endpoint for updating
 app.use('/api/v1/delete', DeleteRoute);//endpoint for deleting
 const PORT = process.env.PORT || 8080;
-app.get('*', (req, res)=>{
+app.get('/', (req, res)=>{
     res.send("Server is running");
 })
 ConnectDB().then(()=>{
