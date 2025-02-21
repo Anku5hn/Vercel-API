@@ -18,7 +18,7 @@ const Home = () => {
     //functions
     const handleCreate = async () => {
         try{
-            await axios.post("http://localhost:8080/api/v1/create/add-text", {title: addTitle, discription: addDiscription});//endpoint for creating
+            await axios.post("https://vercel-api-brown-sigma.vercel.app/api/v1/create/add-text", {title: addTitle, discription: addDiscription});//endpoint for creating
             console.log("added")
         }catch(err){
             console.log(err);
@@ -27,14 +27,14 @@ const Home = () => {
     const handleEdit = async (value:any) =>{
         try{
             const iddata = value;
-            await axios.post("http://localhost:8080/api/v1/update/update-this",{iddata: iddata, payload: {title: editTitle, discription: editDiscription}});//endpoint for editing
+            await axios.post("https://vercel-api-brown-sigma.vercel.app/api/v1/update/update-this",{iddata: iddata, payload: {title: editTitle, discription: editDiscription}});//endpoint for editing
         }catch(err){
             console.log(err);
         }
     }
     const handleRead = async () =>{
         try{
-            const read = await axios.get("http://localhost:8080/api/v1/read/get-data");//endpoint for read
+            const read = await axios.get("https://vercel-api-brown-sigma.vercel.app/api/v1/read/get-data");//endpoint for read
             setReadText(read.data);
         }catch(err){
             console.log(err)
@@ -43,7 +43,7 @@ const Home = () => {
     const handleDelete = async (value:any)=>{
         const iddata = value;
         try{
-            await axios.post("http://localhost:8080/api/v1/delete/delete-this",{iddata: iddata});//endpoint for delete
+            await axios.post("https://vercel-api-brown-sigma.vercel.app/api/v1/delete/delete-this",{iddata: iddata});//endpoint for delete
             handleRead();
         }catch(err){
             console.log(err);
@@ -53,7 +53,7 @@ const Home = () => {
 useEffect(()=>{
     const handleRead = async () =>{
         try{
-            const read = await axios.get("http://localhost:8080/api/v1/read/get-data");//endpoint for read
+            const read = await axios.get("https://vercel-api-brown-sigma.vercel.app/api/v1/read/get-data");//endpoint for read
             setReadText(read.data);
         }catch(err){
             console.log(err)
